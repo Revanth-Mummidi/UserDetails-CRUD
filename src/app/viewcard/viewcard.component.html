@@ -1,0 +1,108 @@
+<div
+  style="
+    width: 500px;
+    max-height: 600px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(238, 239, 244);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
+    background-color: slategray;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <div
+    style="display: flex; flex-direction: row; justify-content: space-between"
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+      "
+    >
+      <p>First Name :-</p>
+      <p>{{ cardData.firstname }}</p>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+      "
+    >
+      <p>Last Name :-</p>
+      <p>{{ cardData.lastname }}</p>
+    </div>
+  </div>
+  <div
+    style="display: flex; flex-direction: row; justify-content: space-between"
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+      "
+    >
+      <p>Date of birth :-</p>
+      <p>{{ cardData.dob }}</p>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+      "
+    >
+      <p>Gender :-</p>
+      <p>{{ cardData.gender }}</p>
+    </div>
+  </div>
+  <div
+    style="display: flex; flex-direction: row; justify-content: space-between"
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+      "
+    >
+      <p style="width: 100%">Email :-</p>
+      <p>{{ cardData.email }}</p>
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-around;
+    "
+  >
+    <p style="width: 100%">Message :-</p>
+    <p>{{ cardData.description }}</p>
+  </div>
+  <div style="display: flex; flex-direction: row; gap:20px" >
+    <div (click)="setEditCard()" class="edit">
+        <p>Edit</p>
+    </div>
+    <div (click)="handleDelete()"  class="delete">
+        <p>Delete</p>
+    </div>
+  </div>
+</div>

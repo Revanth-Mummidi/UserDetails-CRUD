@@ -1,0 +1,242 @@
+<div
+  style="
+    align-self: center;
+    min-height: 500px;
+    min-width: 800px;
+    max-height: 700px;
+    height: 80vh;
+    width: 70vw;
+    border-radius: 30px;
+    padding: 5px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: slategray;
+  "
+>
+  <div
+    (click)="setOnCreateAction({modal:false,submit:false})"
+    style="position: absolute; right: 50px; top: 10px"
+  >
+    <p class="close">X</p>
+  </div>
+  <p
+    style="
+      font-size: 30px;
+      font-weight: 900;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    "
+  >
+    {{isEdit?"Edit":"Add"}} User Details
+  </p>
+  
+  <form style="  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;" [formGroup]="CardForm">
+
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        align-items: center;
+      "
+    >
+      <!-- <p style="font-size: 20px; font-weight: 500; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Name :-</p> -->
+      <input
+        style="
+          width: 100%;
+          border-radius: 5px;
+          padding: 10px;
+          font-weight: 500;
+          font-size: medium;
+          background-color: whitesmoke;
+        "
+        type="text"
+        formControlName="firstname"
+       
+        placeholder="First Name"
+      />
+      <!-- <p style="font-size: 20px; font-weight: 500; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Name :-</p> -->
+      <input
+        style="
+          width: 100%;
+          border-radius: 5px;
+          padding: 10px;
+          font-weight: 500;
+          font-size: medium;
+          background-color: whitesmoke;
+        "
+        type="text"
+        formControlName="lastname"
+        placeholder="Last Name"
+      />
+    </div>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        align-items: center;
+      "
+    >
+      <!-- <p style="font-size: 20px; font-weight: 500; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Name :-</p> -->
+      <input
+        style="
+          width: 100%;
+          border-radius: 5px;
+          padding: 10px;
+          font-weight: 500;
+          font-size: medium;
+          background-color: whitesmoke;
+        "
+       
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+    </div>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 50px;
+        align-items: center;
+      "
+    >
+      <p
+        style="
+          font-weight: 500;
+          width: 30%;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+            sans-serif;
+          font-size: 20px;
+        "
+      >
+        Date of Birth :-
+      </p>
+      <input
+        style="
+          width: 100%;
+          border-radius: 5px;
+          padding: 10px;
+          font-weight: 500;
+          font-size: medium;
+          background-color: whitesmoke;
+        "
+        type="date"
+        
+        formControlName="dob"
+      />
+    </div>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 50px;
+        align-items: center;
+      "
+    >
+      <p
+        style="
+          font-weight: 500;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+            sans-serif;
+          font-size: 20px;
+        "
+      >
+        Gender :-
+      </p>
+      <div
+        style="
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          flex-direction: row;
+          gap: 20px;
+        "
+      >
+        <input name="gender" type="radio" value="Male" formControlName="gender" />
+        <p
+          style="
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            font-size: 20px;
+          "
+        >
+          Male
+        </p>
+        <input name="gender" value="Female" formControlName="gender" type="radio" />
+        <p
+          style="
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            font-size: 20px;
+          "
+        >
+          Female
+        </p>
+        <input name="gender" type="radio" value="Others" formControlName="gender" />
+        <p
+          style="
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+            font-size: 20px;
+          "
+        >
+          Others
+        </p>
+      </div>
+    </div>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 50px;
+        align-items: center;
+      "
+    >
+      <textarea
+      formControlName="description"
+        placeholder="Enter description or message here"
+        style="width: 100%; height: 50px; padding: 20px"
+      >
+      </textarea>
+    </div>
+    <div
+      (click)="setOnCreateAction({modal:false,submit:true})"
+      style="
+        width: 100%;
+        justify-content: end;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <p class="submit">Submit</p>
+    </div>
+    </form>
+  
+</div>
