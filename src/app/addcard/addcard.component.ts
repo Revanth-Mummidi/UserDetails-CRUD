@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-addcard',
@@ -16,6 +17,7 @@ import {
   styleUrl: './addcard.component.scss',
 })
 export class AddcardComponent {
+  constructor(private apiService: ApiService) {}
   @Input() cardsData: any[] = [];
   @Input() isEdit: boolean = false;
   @Input() editData: any;
@@ -42,9 +44,12 @@ export class AddcardComponent {
       });
     }
   }
+
+
   setOnCreateAction = (value: any): void => {
     if (!this.CardForm.invalid && value.submit) {
       const data = {
+        _id: this.isEdit ? this.editData._id : undefined,
         firstname: this.CardForm.value.firstname,
         lastname: this.CardForm.value.lastname,
         email: this.CardForm.value.email,
@@ -52,14 +57,23 @@ export class AddcardComponent {
         description: this.CardForm.value.description,
         gender: this.CardForm.value.gender,
       };
-      console.log('cardsData', this.cardsData);
+     
       if (this.isEdit) {
         this.cardsData[this.editData.index] = data;
-        console.log('cardsData in edit', this.cardsData);
-        this.setOnEditModal.emit(value.modal);
+        this.apiService.updateUser(data).subscribe((res) => {
+          console.log('res', res);
+          console.log('cardsData in edit', this.cardsData);
+          this.setOnEditModal.emit(value.modal);
+        }
+        );
+       
       } else{
-        this.cardsData.push(data);
-         this.setOnCreateModal.emit(value.modal);
+        this.apiService.createUser(data).subscribe((res) => {
+          console.log('res', res);
+          this.cardsData.push(res.data);
+          this.setOnCreateModal.emit(value.modal);
+        }
+        );
         }
     } else {
       if (!value.submit) {
