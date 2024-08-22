@@ -45,6 +45,7 @@ export class AddcardComponent {
     }
   }
 
+ 
 
   setOnCreateAction = (value: any): void => {
     if (!this.CardForm.invalid && value.submit) {
@@ -69,7 +70,7 @@ export class AddcardComponent {
        
       } else{
         this.apiService.createUser(data).subscribe((res) => {
-          console.log('res', res);
+          console.log('result', res);
           this.cardsData.push(res.data);
           this.setOnCreateModal.emit(value.modal);
         }

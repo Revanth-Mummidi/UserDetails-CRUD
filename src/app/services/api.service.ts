@@ -17,6 +17,10 @@ interface UserResponse {
   data: UserType[] ;
 }
 
+interface PageType{
+  pageNumber:number;
+  pageSize:number;
+}
 
 const base_url='http://localhost:3000/api/users';
 
@@ -33,7 +37,20 @@ export class ApiService {
     return this.http.get<UserResponse>(base_url);
   }
 
+  uploadFile(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(`${base_url}/upload`, formData);
+  }
+
+  getSplitUsers(data:PageType | any): Observable<any> {
+    console.log("DATA",data);
+
+    return this.http.post<UserResponse>(`${base_url}/split`,data);
+  }
+
   createUser(user: UserType): Observable<any> {
+    console.log("USER DETAILS=",user);
     return this.http.post<any>(base_url, user);
   }
 

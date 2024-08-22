@@ -11,3 +11,72 @@
 .create:hover{
     opacity: 0.5;
 }
+
+.file{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left:200px;
+    top:10px;
+  
+    cursor: pointer;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #138bcc;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    margin:0px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.custom-file-upload i {
+    margin-right: 8px;
+}
+
+.custom-file-upload:hover {
+    background-color: #17bfc5;
+}
+
+.custom-file-upload:focus {
+    outline: none;
+    
+    box-shadow: 0 0 6px 6px rgba(212, 235, 217, 0.985);
+}
+
+
+
+
+.custom-file-choose {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #0fb276;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.custom-file-choose i {
+    margin-right: 8px;
+}
+
+.custom-file-choose:hover {
+    background-color: #3dc517;
+}
+
+.custom-file-choose:focus {
+    outline: none;
+    
+    box-shadow: 0 0 6px 6px rgba(212, 235, 217, 0.985);
+}
+

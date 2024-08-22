@@ -13,7 +13,9 @@
     color: rgb(238, 239, 244);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
       sans-serif;
-    background-color: slategray;
+  box-shadow: 0 0 8px 7px rgba(10, 203, 237, 0.982);
+    
+    background-color: rgb(15, 53, 124);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -27,10 +29,11 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+        align-items: center;
         justify-content: space-around;
       "
     >
-      <p>First Name :-</p>
+      <p class="sublabel">First Name :-</p>
       <p>{{ cardData.firstname }}</p>
     </div>
     <div
@@ -38,10 +41,11 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+        align-items: center;
         justify-content: space-around;
       "
     >
-      <p>Last Name :-</p>
+      <p class="sublabel">Last Name :-</p>
       <p>{{ cardData.lastname }}</p>
     </div>
   </div>
@@ -53,10 +57,11 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+        align-items: center;
         justify-content: space-around;
       "
     >
-      <p>Date of birth :-</p>
+      <p class="sublabel">Date of birth :-</p>
       <p>{{ cardData.dob }}</p>
     </div>
     <div
@@ -64,10 +69,11 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+        align-items: center;
         justify-content: space-around;
       "
     >
-      <p>Gender :-</p>
+      <p class="sublabel">Gender :-</p>
       <p>{{ cardData.gender }}</p>
     </div>
   </div>
@@ -79,10 +85,11 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+        align-items: center;
         justify-content: space-around;
       "
     >
-      <p style="width: 100%">Email :-</p>
+      <p class="sublabel" style="width: 100%">Email :-</p>
       <p>{{ cardData.email }}</p>
     </div>
   </div>
@@ -91,10 +98,11 @@
       display: flex;
       flex-direction: row;
       gap: 10px;
+      align-items: center;
       justify-content: space-around;
     "
   >
-    <p style="width: 100%">Message :-</p>
+    <p class="sublabel" style="width: 100%">Message :-</p>
     <p>{{ cardData.description }}</p>
   </div>
   <div style="display: flex; flex-direction: row; gap:20px" >

@@ -1,5 +1,4 @@
 <div
-
   style="
     min-height: 100vh;
     min-width: 100vw;
@@ -41,6 +40,31 @@
         Create
       </p>
     </div>
+    <div *ngIf="!onCreate && !onEdit" class="file">
+      <label for="file-upload" class="custom-file-choose"> Choose File </label>
+      <input
+        (change)="onFileChange($event)"
+        id="file-upload"
+        type="file"
+        accept=".xlsx"
+        style="display: none"
+      />
+      <div
+        *ngIf="filename"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+        "
+      >
+        <img src="../assets/word.png" style="height: 50px; width: 50px" />
+        <p style="color: white; font-size: 20px">{{ filename }}</p>
+
+        <p (click)="onUpload()" class="custom-file-upload">Upload</p>
+      </div>
+    </div>
   </div>
 
   <div
@@ -66,31 +90,35 @@
   } @else if(!onCreate && !onEdit) {
 
   <div
- 
+    style="overflow-y: scroll; scrollbar-width: none; height: 100vh"
+    appInfiniteScroll
+    (scrolled)="onScrollDown()"
   >
-  <div
-    
-    *ngFor="let item of cardsData; index as i"
-    style="
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      color: white;
-      overflow-y: scroll;
-      scrollbar-width: none;
-    "
-  >
-    <app-viewcard
-      (handleEditItem)="setEditObject($event)"
-      (setOnEditCard)="setOnEdit($event)"
-      (handleDeleteItem)="handleDelete($event)"
-      [index]="i"
-      [cardData]="item"
-    ></app-viewcard>
+    <div
+      *ngFor="let item of cardsData; index as i"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        color: white;
+      "
+    >
+      <app-viewcard
+        (handleEditItem)="setEditObject($event)"
+        (setOnEditCard)="setOnEdit($event)"
+        (handleDeleteItem)="handleDelete($event)"
+        [index]="i"
+        [cardData]="item"
+      ></app-viewcard>
+    </div>
+    <div *ngIf="!isLoading && !isEnd">
+      <p style="color: white; font-size: 20px; text-align: center">
+        Loading...
+      </p>
+    </div>
   </div>
-</div>
   }
 </div>
