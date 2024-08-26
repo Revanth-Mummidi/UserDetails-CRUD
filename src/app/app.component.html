@@ -5,18 +5,21 @@
     background-color: black;
     display: flex;
     scrollbar-width: none;
+    overflow-y: hidden;
     flex-direction: column;
-    position: relative;
-    justify-content: center;
+    justify-content: start;
+
   "
 >
   <div
     style="
+    
       display: flex;
-      width: 100vw;
-      position: absolute;
-      justify-content: end;
-      align-items: start;
+      width: 90vw;
+      flex-direction: row;
+      align-self: center;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: row;
       right: 40px;
       top: 40px;
@@ -40,6 +43,9 @@
         Create
       </p>
     </div>
+    <div>
+      <h1 style="display: flex; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 40px;">User Details</h1>
+    </div>
     <div *ngIf="!onCreate && !onEdit" class="file">
       <label for="file-upload" class="custom-file-choose"> Choose File </label>
       <input
@@ -53,13 +59,15 @@
         *ngIf="filename"
         style="
           display: flex;
+          position: absolute;
+          top:120px;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           margin-top: 30px;
         "
       >
-        <img src="../assets/word.png" style="height: 50px; width: 50px" />
+        <img src="../assets/png-transparent-excel-logo-logos-logos-and-brands-icon.png" style="height: 50px; width: 50px" />
         <p style="color: white; font-size: 20px">{{ filename }}</p>
 
         <p (click)="onUpload()" class="custom-file-upload">Upload</p>

@@ -22,6 +22,7 @@ import { error } from 'console';
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+ 
 })
 export class AppComponent {
   onCreate: boolean = false;
