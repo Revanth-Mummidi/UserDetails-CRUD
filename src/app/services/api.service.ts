@@ -22,7 +22,7 @@ interface PageType{
   pageSize:number;
 }
 
-const base_url='http://localhost:3000/api/users';
+const base_url='http://localhost:3002/api/users';
 
 @Injectable({
   providedIn: 'root'
